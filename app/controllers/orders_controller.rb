@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        html = render_to_string template: "order/show"
+        html = render_to_string template: "orders/show"
         pdf = PDFKit.new(html, encoding: "UTF-8")
         send_data pdf.to_pdf, filename: "order_#{@order.id}.pdf", type: "application/pdf", disposition: "inline"
       end
