@@ -21,12 +21,10 @@
   </div>
   <div class="field">
     <%= f.label :order_products, :order_products %><br />
-    <%= f.fields_for :order_products do |order_prices_form| %>
-      <%= order_prices_form.label :product %>
-      <%= order_prices_form.number_field :product_id %><br />
-      <%= order_prices_form.label :number %>
-      <%= order_prices_form.number_field :number %><br />
+    <%= f.fields_for :order_products do |order_product_form| %>
+      <%= render "order_product_field", f: order_product_form %>
     <% end %>
+    <%= link_to_add_fields "Add Product", f, :order_products %>
   </div>
   <div class="actions">
     <%= f.submit %>

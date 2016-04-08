@@ -1,0 +1,8 @@
+<fieldset>
+  <%= f.label :product %>
+  <%= f.collection_select :product_id, Product.all, :id, :name %><br />
+  <%= f.label :number %>
+  <%= f.number_field :number %><br />
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "destroy", '#', class: "remove_fields" %>
+</fieldset>

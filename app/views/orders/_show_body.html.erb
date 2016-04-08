@@ -1,0 +1,32 @@
+<p>
+  <strong>Total price:</strong>
+  <%= @order.total_price %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_products.each do |order_product| %>
+    <tr>
+      <td><%= order_product.product.name %></td>
+      <td><%= order_product.product.price %></td>
+      <td><%= order_product.number %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>Total</td>
+      <td colspan=2><%= @order.total_price %></td>
+    </tr>
+  </tbody>
+</table>
